@@ -52,7 +52,9 @@ p{margin:0}
 .eyebrow{font-family:var(--mono);font-size:13px;letter-spacing:.08em;color:var(--ash);display:flex;align-items:center;gap:12px}
 .eyebrow::before{content:"";width:28px;height:2px;background:var(--blood)}
 .hero h1{font-size:clamp(56px,10vw,128px);font-weight:700;text-transform:uppercase;letter-spacing:-.005em;margin:22px 0 28px;line-height:.92}
-.hero h1 .split{display:block;position:relative;padding-left:.12em;margin-left:-.12em}
+.hero h1 .split{display:block;position:relative;padding-left:.12em;margin-left:-.12em;white-space:nowrap}
+.hero .wrap>div:first-child{container-type:inline-size}
+@supports (font-size:1cqi){.hero h1{font-size:clamp(44px,16cqi,128px)}}
 .hero h1 .split em{font-style:normal;color:transparent;-webkit-text-stroke:1.5px var(--bone)}
 .hero .lead{font-size:clamp(17px,1.6vw,20px);color:var(--ash);max-width:34em}
 .hero .lead strong{color:var(--bone);font-weight:500}
@@ -91,6 +93,8 @@ section{padding:clamp(64px,9vw,120px) 0;border-bottom:1px solid var(--ridge)}
 
 /* Castellan */
 .castellan{display:grid;grid-template-columns:1fr 1fr;gap:clamp(28px,5vw,64px);align-items:start}
+.castellan>*,.faces>*,.contact>*,.hero .wrap>*{min-width:0}
+.spec pre{font-size:13px}
 .features{display:flex;flex-direction:column}
 .feature{display:grid;grid-template-columns:48px 1fr;gap:16px;padding:22px 0;border-top:1px solid var(--ridge)}
 .feature:last-child{border-bottom:1px solid var(--ridge)}
@@ -156,6 +160,12 @@ html[data-lang="en"] [data-l="fr"]{display:none!important}
 .lang button:hover{color:var(--bone)}
 .lang button[aria-pressed="true"]{background:var(--bone);color:var(--obsidian)}
 [hidden]{display:none!important}
+@media (max-width:560px){
+  .spec .bar{flex-direction:column;align-items:flex-start;gap:2px}
+  .spec pre{white-space:pre-wrap;word-break:break-word;font-size:12.5px;padding:16px 14px}
+  .actions .btn{flex:1 1 100%;justify-content:center}
+}
+.btn.ghost{clip-path:none}
 </style>
 </head>
 <body>
